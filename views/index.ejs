@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Willkommen beim Demo Hub</h1>
+
+        <% if (user) { %>
+            <!-- Benutzer ist eingeloggt -->
+            <div class="user-info">
+                <img src="<%= user.photos[0].value %>" alt="Benutzerbild" class="user-image">
+                <span class="user-name"><%= user.displayName %></span>
+                <a href="/logout" class="logout-button">Logout</a>
+            </div>
+
+            <!-- Kacheln für verschiedene Funktionen oder Links -->
+            <div class="tiles">
+                <div class="tile">Kachel 1</div>
+                <div class="tile">Kachel 2</div>
+                <div class="tile">Kachel 3</div>
+                <div class="tile">Kachel 4</div>
+                <div class="tile">Kachel 5</div>
+                <div class="tile">Kachel 6</div>
+            </div>
+        <% } else { %>
+            <!-- Benutzer ist nicht eingeloggt -->
+            <p>Dies ist eine Demo-Webanwendung, die OAuth2-Authentifizierung mit Google und Azure AD unterstützt.</p>
+
+            <!-- Authentifizierungsoptionen -->
+            <div class="auth-options">
+                <a href="/auth/google" class="auth-link">Mit Google anmelden</a>
+                <a href="/auth/azure" class="auth-link">Mit Azure AD anmelden</a>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
